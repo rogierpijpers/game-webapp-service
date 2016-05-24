@@ -1,0 +1,11 @@
+nl\hu\fnt\gsos\wsinterface\GameDetailsRequest.class
+nl\hu\fnt\gsos\wsinterface\Void.class
+nl\hu\fnt\gsos\wsinterface\APIService.class
+nl\hu\fnt\gsos\wsinterface\GamesResponse.class
+nl\hu\fnt\gsos\wsinterface\ObjectFactory.class
+nl\hu\fnt\gsos\wsinterface\GameListResponse.class
+nl\hu\fnt\gsos\wsinterface\Fault_Exception.class
+nl\hu\fnt\gsos\wsinterface\package-info.class
+nl\hu\fnt\gsos\wsinterface\WSInterface.class
+nl\hu\fnt\gsos\wsinterface\GameDetailsResponse.class
+nl\hu\fnt\gsos\wsinterface\Fault.class

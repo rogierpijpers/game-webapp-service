@@ -1,0 +1,19 @@
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.hu.nl/gamesResponse" targetNamespace="http://www.hu.nl/gamesResponse"
+	elementFormDefault="qualified">
+	<xs:element name="gameListResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="tns:gamesResponse"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gamesResponse" type="tns:GamesResponse"/>
+	<xs:complexType name="GamesResponse">
+		<xs:sequence>
+			<xs:element name="appId" type="xs:int" />
+			<xs:element name="title" type="xs:string" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+

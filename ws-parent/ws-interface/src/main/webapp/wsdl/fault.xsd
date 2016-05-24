@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://schemas.hu.fnt.nl/berichten/fault"
+	targetNamespace="http://schemas.hu.fnt.nl/berichten/fault"
+	elementFormDefault="qualified">
+	<element name="fault">
+		<complexType>
+			<sequence>
+				<element name="errorCode" type="short" nillable="false" />
+				<element name="message" type="string" minOccurs="0"
+					maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

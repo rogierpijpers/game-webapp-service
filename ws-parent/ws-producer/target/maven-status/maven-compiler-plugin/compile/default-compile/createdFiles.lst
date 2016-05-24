@@ -1,0 +1,8 @@
+nl\hu\fnt\gsos\util\JSONParser.class
+nl\hu\fnt\gsos\data\IgnDAO.class
+nl\hu\fnt\gsos\data\SteamDAO.class
+nl\hu\fnt\gsos\data\Game.class
+nl\hu\fnt\gsos\data\GiantBombDAO.class
+nl\hu\fnt\gsos\wsproducer\GameServiceImpl.class
+nl\hu\fnt\gsos\data\GameFacade.class
+nl\hu\fnt\gsos\data\YoutubeDAO.class
