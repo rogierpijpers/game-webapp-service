@@ -16,25 +16,29 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 		crossorigin="anonymous"></script>
-	
+
 	<!--  JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
 	<!-- AngularJS -->
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
+
+	<script
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
+	<link rel="stylesheet" href="include/stylesheet.css" />
 </header>
 <body>
-	<div ng-app="game-app" ng-controller="GameCtrl" data-ng-init="getGames()">
+	<div ng-app="game-app" ng-controller="GameCtrl"
+		data-ng-init="getGames()">
 		<div class="container">
 			<div class="header clearfix">
 				<h3 class="text-muted">Steam Game Review Service</h3>
 			</div>
-			<div class="jumbotron">
+			<div class="jumbotron content">
 				<h1 class="display-3">Select A Game</h1>
 				<p>Steam game reviews, ratings and more...</p>
 				<p>
@@ -44,7 +48,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<table class="table table-striped">
+			<table class="table table-striped content">
 				<thead>
 					<tr>
 						<th>AppID</th>
@@ -52,7 +56,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="game in Games | filter: searchKeyword " ng-click="redirect(game.appId.__text)">
+					<tr ng-repeat="game in Games | filter: searchKeyword "
+						ng-click="redirect(game.appId.__text)">
 						<!--  NG REPEAT -->
 						<td>{{game.appId.__text}}</td>
 						<td>{{game.title.__text}}</td>

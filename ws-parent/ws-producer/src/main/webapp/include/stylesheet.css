@@ -1,0 +1,35 @@
+body{
+	background-color: #b3b3b3;
+}
+.btn {
+	color: white;
+	background-color: #0275d8;
+}
+
+.content {
+	background-color: #eee;
+	padding: 10px;
+	box-shadow: 5px 5px 5px #8c8c8c;
+}
+
+.paragraph {
+	padding: 10px;
+	background: #f9f9f9;
+}
+
+.display-2 {
+	margin-top: 0px;
+	padding: 10px;
+	background: #f9f9f9;
+	box-shadow: 5px 5px 0px #e6e6e6;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+#player {
+	width: 480px;
+	height: 292px;
+	margin: 30px;
+}
