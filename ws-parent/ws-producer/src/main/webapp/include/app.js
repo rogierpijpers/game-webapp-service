@@ -1,4 +1,4 @@
-var app = angular.module('game-app', []);
+var app = angular.module('game-app', ['ngSanitize']);
 
 app.controller('GameCtrl', function($scope, $http, $window)
 {
@@ -35,8 +35,9 @@ app.controller('GameCtrl', function($scope, $http, $window)
             var json = x2js.xml_str2json( data );
             console.log(json.Envelope.Body.gameDetailsResponse);
             $scope.Game = json.Envelope.Body.gameDetailsResponse;
-            $scope.videoUrl = 'http://www.youtube.com/embed/'+$scope.Game.videoId+'?enablejsapi=1&origin=http://example.com';
+            loadPlayer($scope.Game.videoId.__text);
 		});
+		
 
 	}
 	

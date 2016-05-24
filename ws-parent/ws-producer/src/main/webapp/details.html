@@ -1,6 +1,7 @@
 <html>
 <header>
-	<<link rel="stylesheet"
+	<
+	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 		crossorigin="anonymous">
@@ -16,16 +17,19 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 		crossorigin="anonymous"></script>
-	
+
 	<!--  JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
 	<!-- AngularJS -->
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
+	<script
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
 	<style>
 .btn {
 	color: white;
@@ -36,9 +40,19 @@
 	background-color: #eee;
 	padding: 10px;
 }
-
+.paragraph{
+	padding: 10px;
+	background: #f9f9f9;
+}
 .display-2 {
 	margin-top: 0px;
+	padding: 10px;
+	background: #f9f9f9;
+	box-shadow: 5px 5px 0px #e6e6e6;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 #player {
@@ -49,7 +63,9 @@
 </style>
 </header>
 <body>
-	<div ng-app="game-app" ng-controller="GameCtrl" data-ng-init="getGameDetails()"> <!--  getGameDetails({{appId}}) -->
+	<div ng-app="game-app" ng-controller="GameCtrl"
+		data-ng-init="getGameDetails()">
+		<!--  getGameDetails({{appId}}) -->
 		<div class="container">
 			<div class="header clearfix">
 				<h3 class="text-muted">Steam Game Review Service</h3>
@@ -57,8 +73,8 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-sm-7">
-						<h1 class="display-3">{{Game.title}}</h1>
-						<p>Subtitle?</p>
+						<h1 class="display-3">{{Game.title.__text}}</h1>
+						<!-- <p>Subtitle?</p>  -->
 						<p>
 							<a class="btn brn-primary btn-lg" href="index.html" role="button">Terug
 								naar overzicht</a>
@@ -66,7 +82,7 @@
 					</div>
 					<div class="col-sm-5">
 						<a href="#" class="thumbnail"> <img
-							src="{{Game.headerImage}}"
+							src="{{Game.headerImage.__text}}"
 							alt="Generic placeholder thumbnail">
 						</a>
 					</div>
@@ -77,32 +93,35 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="content">
-						<p>{{Game.description}}</p>
+						<h2 class="display-2">Description</h2>
+						<div class="paragraph" ng-bind-html="Game.description.__text"></div>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="content">
-							<h2 class="display-2">IGN RATING: {{Game.ignRating}}</h2>
+							<h2 class="display-2">
+								IGN RATING: <span class="bold">{{Game.ignRating.__text}}</span>
+							</h2>
 						</div>
 					</div>
 					<p></p>
 					<div class="row">
 						<div class="content">
 							<h2 class="display-2">Trailer</h2>
-							
+
 							<!-- src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com" -->
-							
-							<iframe id="player" type="text/html"	
-								src="{{videoUrl}}"
-								frameborder="0"></iframe>
+
+							<div id="player"></div>
 						</div>
 					</div>
+					<!-- <input type="button" value="load" onclick="loadPlayer()" /> --> <input
+						type="hidden" id='videoId' value="{{Game.videoId.__text}}" />
 					<p></p>
 					<div class="row">
 						<div class="content">
 							<h2 class="display-2">Review</h2>
-							<p>{{Game.giantBombReview}}</p>
+							<div class="paragraph" ng-bind-html="Game.gaintBombReview.__text"></div>
 						</div>
 					</div>
 				</div>
@@ -112,21 +131,18 @@
 </body>
 
 <script type="text/javascript" src="/include/app.js"></script>
+<script type="text/javascript" src="/include/xml2json.js"></script>
 
 <!-- YOUTUBE API SCRIPT -->
 <script>
-	var tag = document.createElement('script');
-
-	tag.src = "https://www.youtube.com/iframe_api";
-	var firstScriptTag = document.getElementsByTagName('script')[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 	var player;
-	function onYouTubeIframeAPIReady() {
+	function onYouTubePlayer(videoId) {
+		//var videoId = document.getElementById('videoId').value;
+		console.log(videoId);
 		player = new YT.Player('player', {
 			height : '390',
 			width : '640',
-			videoId : 'M7lc1UVf-VE',
+			videoId : videoId,
 			events : {
 				'onReady' : onPlayerReady,
 				'onStateChange' : onPlayerStateChange
@@ -134,8 +150,27 @@
 		});
 	}
 
+	function loadPlayer(videoId) {
+		if (typeof (YT) == 'undefined' || typeof (YT.Player) == 'undefined') {
+
+			var tag = document.createElement('script');
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			window.onYouTubePlayerAPIReady = function() {
+				onYouTubePlayer(videoId);
+			};
+
+		} else {
+
+			onYouTubePlayer();
+
+		}
+	}
+
 	function onPlayerReady(event) {
-		event.target.playVideo();
+		//event.target.playVideo();
 	}
 
 	var done = false;
@@ -148,9 +183,6 @@
 	function stopVideo() {
 		player.stopVideo();
 	}
-</script> 
-
-<script type="text/javascript" src="/include/xml2json.js"></script>
-<script type="text/javascript" src="/include/app.js"></script>
+</script>
 
 </html>
