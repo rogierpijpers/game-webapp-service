@@ -53,8 +53,8 @@ public class SteamDAO {
 			JSONArray returnValue = parser.getObjects();
 
 			result = returnValue.getJSONObject(0).getJSONObject("applist").getJSONArray("apps");
-
-			for (int i = 0; i < result.length(); i++) {
+				// LIMIT 100
+			for (int i = 0; i < 100; i++) {
 				appId = result.getJSONObject(i).getInt("appid");
 				name = result.getJSONObject(i).getString("name");
 
@@ -88,6 +88,7 @@ public class SteamDAO {
 			game = new Game(appId, name);
 			game.setDescription(jsonObj.getJSONObject(String.valueOf(appId)).getJSONObject("data")
 					.getString("detailed_description"));
+			game.setHeaderImage(jsonObj.getJSONObject(String.valueOf(appId)).getJSONObject("data").getString("header_image"));
 
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

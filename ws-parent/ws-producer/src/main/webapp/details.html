@@ -1,6 +1,6 @@
 <html>
 <header>
-	<link rel="stylesheet"
+	<<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 		crossorigin="anonymous">
@@ -16,7 +16,10 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 		crossorigin="anonymous"></script>
-
+	
+	<!--  JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
 	<!-- AngularJS -->
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -46,7 +49,7 @@
 </style>
 </header>
 <body>
-	<div ng-app="game-app" ng-controller="GameCtrl">
+	<div ng-app="game-app" ng-controller="GameCtrl" data-ng-init="getGameDetails()"> <!--  getGameDetails({{appId}}) -->
 		<div class="container">
 			<div class="header clearfix">
 				<h3 class="text-muted">Steam Game Review Service</h3>
@@ -54,7 +57,7 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-sm-7">
-						<h1 class="display-3">Game Title</h1>
+						<h1 class="display-3">{{Game.title}}</h1>
 						<p>Subtitle?</p>
 						<p>
 							<a class="btn brn-primary btn-lg" href="index.html" role="button">Terug
@@ -63,7 +66,7 @@
 					</div>
 					<div class="col-sm-5">
 						<a href="#" class="thumbnail"> <img
-							src="http://www.howtorecordpodcasts.com/wp-content/uploads/2012/10/YouTube-Background-Pop-1.jpg"
+							src="{{Game.headerImage}}"
 							alt="Generic placeholder thumbnail">
 						</a>
 					</div>
@@ -74,22 +77,24 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="content">
-						<p>Content Content Content Content</p>
+						<p>{{Game.description}}</p>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="content">
-							<h2 class="display-2">IGN RATING: 0.0</h2>
+							<h2 class="display-2">IGN RATING: {{Game.ignRating}}</h2>
 						</div>
 					</div>
 					<p></p>
 					<div class="row">
 						<div class="content">
 							<h2 class="display-2">Trailer</h2>
-
-							<iframe id="player" type="text/html"
-								src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+							
+							<!-- src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com" -->
+							
+							<iframe id="player" type="text/html"	
+								src="{{videoUrl}}"
 								frameborder="0"></iframe>
 						</div>
 					</div>
@@ -97,7 +102,7 @@
 					<div class="row">
 						<div class="content">
 							<h2 class="display-2">Review</h2>
-							<p>Review</p>
+							<p>{{Game.giantBombReview}}</p>
 						</div>
 					</div>
 				</div>
@@ -143,5 +148,9 @@
 	function stopVideo() {
 		player.stopVideo();
 	}
-</script>
+</script> 
+
+<script type="text/javascript" src="/include/xml2json.js"></script>
+<script type="text/javascript" src="/include/app.js"></script>
+
 </html>
