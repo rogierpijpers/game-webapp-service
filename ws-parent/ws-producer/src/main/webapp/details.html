@@ -40,10 +40,12 @@
 	background-color: #eee;
 	padding: 10px;
 }
-.paragraph{
+
+.paragraph {
 	padding: 10px;
 	background: #f9f9f9;
 }
+
 .display-2 {
 	margin-top: 0px;
 	padding: 10px;
@@ -115,15 +117,15 @@
 							<div id="player"></div>
 						</div>
 					</div>
-					<!-- <input type="button" value="load" onclick="loadPlayer()" /> --> <input
-						type="hidden" id='videoId' value="{{Game.videoId.__text}}" />
+					<!-- <input type="button" value="load" onclick="loadPlayer()" /> -->
+					<input type="hidden" id='videoId' value="{{Game.videoId.__text}}" />
 					<p></p>
-					<div class="row">
-						<div class="content">
-							<h2 class="display-2">Review</h2>
-							<div class="paragraph" ng-bind-html="Game.gaintBombReview.__text"></div>
-						</div>
-					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="content">
+					<h2 class="display-2">Review</h2>
+					<div class="paragraph" id="review" ng-bind-html="Game.giantBombReview.__text"></div>
 				</div>
 			</div>
 		</div>
