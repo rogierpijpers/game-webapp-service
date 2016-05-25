@@ -1,6 +1,6 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:tns="http://www.hu.nl/gamesResponse" targetNamespace="http://www.hu.nl/gamesResponse"
-	elementFormDefault="qualified">
+	elementFormDefault="unqualified">
 	<xs:element name="gameListResponse">
 		<xs:complexType>
 			<xs:sequence>

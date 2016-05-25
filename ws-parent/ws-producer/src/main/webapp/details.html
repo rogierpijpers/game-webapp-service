@@ -43,7 +43,7 @@
 			<div class="jumbotron content">
 				<div class="row">
 					<div class="col-sm-7">
-						<h1 class="display-3">{{Game.title.__text}}</h1>
+						<h1 class="display-3">{{Game.title}}</h1>
 						<!-- <p>Subtitle?</p>  -->
 						<p>
 							<a class="btn brn-primary btn-lg" href="index.html" role="button">Terug
@@ -52,7 +52,7 @@
 					</div>
 					<div class="col-sm-5">
 						<a href="#" class="thumbnail"> <img
-							src="{{Game.headerImage.__text}}"
+							src="{{Game.headerImage}}"
 							alt="Generic placeholder thumbnail">
 						</a>
 					</div>
@@ -64,14 +64,14 @@
 				<div class="col-sm-6">
 					<div class="content">
 						<h2 class="display-2">Steam Description</h2>
-						<div class="paragraph" ng-bind-html="Game.description.__text"></div>
+						<div class="paragraph" ng-bind-html="Game.description"></div>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="content">
 							<h2 class="display-2">
-								IGN RATING: <span class="bold">{{Game.ignRating.__text}}</span>
+								IGN RATING: <span class="bold">{{Game.ignRating}}</span>
 							</h2>
 						</div>
 					</div>
@@ -86,14 +86,14 @@
 						</div>
 					</div>
 					<!-- <input type="button" value="load" onclick="loadPlayer()" /> -->
-					<input type="hidden" id='videoId' value="{{Game.videoId.__text}}" />
+					<input type="hidden" id='videoId' value="{{Game.videoId}}" />
 					<p></p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="content">
 					<h2 class="display-2">GiantBomb Review</h2>
-					<div class="paragraph" id="review" ng-bind-html="Game.giantBombReview.__text"></div>
+					<div class="paragraph" id="review" ng-bind-html="Game.giantBombReview"></div>
 				</div>
 			</div>
 		</div>

@@ -57,10 +57,10 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="game in Games | filter: searchKeyword "
-						ng-click="redirect(game.appId.__text)">
+						ng-click="redirect(game.appId)">
 						<!--  NG REPEAT -->
-						<td>{{game.appId.__text}}</td>
-						<td>{{game.title.__text}}</td>
+						<td>{{game.appId}}</td>
+						<td>{{game.title}}</td>
 					</tr>
 				</tbody>
 			</table>

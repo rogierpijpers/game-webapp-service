@@ -31,11 +31,12 @@ app.controller('GameCtrl', function($scope, $http, $window)
 		var url = "http://localhost:8080/ws-producer";
 		$scope.Game = null;
 		$http.post(url, soapMessage,{"headers":headers}).success(function(data){
+			//console.log(data);
 			var x2js = new X2JS();
             var json = x2js.xml_str2json( data );
-            console.log(json.Envelope.Body.gameDetailsResponse);
+            console.log(json);
             $scope.Game = json.Envelope.Body.gameDetailsResponse;
-            loadPlayer($scope.Game.videoId.__text);
+            loadPlayer($scope.Game.videoId);
 		});
 		
 
@@ -57,7 +58,10 @@ app.controller('GameCtrl', function($scope, $http, $window)
 		$http.post(url, soapMessage,{"headers":headers}).success(function(data){
 			var x2js = new X2JS();
             var json = x2js.xml_str2json( data );
-            $scope.Games = json.Envelope.Body.gameListResponse.gamesResponse;
+            
+            var gameList = json.Envelope.Body.gameListResponse.gamesResponse;
+            
+            $scope.Games = gameList;
 		});	
 	}
 })
