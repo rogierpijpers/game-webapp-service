@@ -54,7 +54,7 @@ public class SteamDAO {
 
 			result = returnValue.getJSONObject(0).getJSONObject("applist").getJSONArray("apps");
 				// LIMIT 100
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 300; i++) {
 				appId = result.getJSONObject(i).getInt("appid");
 				name = result.getJSONObject(i).getString("name");
 
